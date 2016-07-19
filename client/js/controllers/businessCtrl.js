@@ -27,6 +27,35 @@ app.controller('businessCtrl', function($scope, User, $rootScope, Business, Prof
       })
     }
 
+  $scope.searchBusiness2 = () => {
+      console.log("search");
+      var searchBy = {};
+
+      if($scope.newItem.location){
+        searchBy.location = $scope.newItem.location
+      }
+      if($scope.newItem.term){
+        searchBy.term = $scope.newItem.term;
+      }
+      console.log("searchBy:", searchBy);
+
+      Business.searchCatagories(searchBy)
+      .then(res =>{
+        console.log("res from search businsess:" , res);
+        for(var i=0; i< favorites.length; i++){
+          console.log(res.id ," vs ", favorites[i]);
+          if(res.id === favorites[i]){
+            $scope.toggleFave = true;
+          }
+        }
+        $scope.businesses.push(res);
+      })    
+      .catch(err =>{
+        console.log("err in businessCtrl: ", err);
+      })
+    }
+
+
     //add to user favorites
     $scope.favorite = (index)=>{
       $scope.toggleFave = !$scope.toggleFave;

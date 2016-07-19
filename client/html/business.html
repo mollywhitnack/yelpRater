@@ -41,9 +41,23 @@
   <div class="form-group">
       <label >Search By Yelp Id <h5> ex: urban-curry-san-francisco</h5></label>
       <input type="text" class="form-control" placeholder="Name" ng-model = 'newItem.searchParams'>
-    </div>
+  </div>
     <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
 </form>
+
+<form ng-submit = 'searchBusiness2()'>
+  <div class="form-group">
+      <label >location(broken)</label>
+      <input type="text" class="form-control" placeholder="Location" ng-model = 'newItem.location'>
+  </div>
+  <div class="form-group">
+      <label >term</label>
+      <input type="text" class="form-control" placeholder="Term" ng-model = 'newItem.term'>
+  </div>
+    <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
+</form>
+
+
 
 <br>
 <hr>

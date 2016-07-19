@@ -58,6 +58,12 @@ router.get('/yelp/:searchParam', (req, res) =>{
 });
 
 
+router.get('/yelpCatagories', (req, res) =>{
+  console.log('req.body:', req.body);
+  yelp.search(req.body, function(err, data){
+    res.status(err ? 400 : 200).send(err || data);
+  })
+});
 
 
 module.exports = router;

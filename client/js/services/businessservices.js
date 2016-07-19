@@ -17,6 +17,19 @@ app.service('Business', function($http, $q){
       })
   }
 
+  this.searchCatagories = (inputs) =>{
+    console.log("inputs", inputs);
+    return $http.get(`/api/businesses/yelpCatagories`, inputs)
+     .then(res => {
+        console.log("res.data in services:", res.data);
+        console.log("res in services:", res);
+        return $q.resolve(res.data);
+      })
+      .catch(err => {   
+        console.log('err:', err);
+      })
+  }
+
   this.addFavorite = (businessObj, userId) =>{
     console.log("businessObj:", businessObj);
     return $http.post(`/api/businesses/${userId}`, businessObj)
