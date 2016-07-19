@@ -48,7 +48,7 @@ gulp.task('lint', function(){
 
 gulp.task('default', ['build', 'watch', 'browser-sync']);
 
-//tess heroku to run build but not watch
+//tell heroku to run build but not watch
 gulp.task('build', ['html', 'css', 'js', 'favicon']);
 gulp.task('watch',['watch:html', 'watch:css', 'watch:js']);
 
