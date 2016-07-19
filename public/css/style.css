@@ -28,3 +28,10 @@ ol {
 
 .right {
   text-align: right; }
+
+.address {
+  padding-left: 20px;
+  padding-top: 20px; }
+
+.inLB {
+  display: inline-block; }

@@ -9,8 +9,8 @@ const JWT_SECRET = process.env.JWT_SECRET;
 let userSchema = new mongoose.Schema({
   email: String,
   password: {type: String},
-  displayName: String, 
-  profileImage: String,
+  displayName: {type: String, default: 'Edit My Username'},
+  profileImage:{type: String, default:'http://www.freeiconspng.com/uploads/person-icon-5.png'},
   facebook: String, 
   favorites: [String],
   wallposts: [{type: mongoose.Schema.Types.ObjectId, ref: 'wallpost'}]

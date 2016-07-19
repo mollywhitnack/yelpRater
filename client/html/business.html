@@ -4,11 +4,12 @@
   <meta charset="UTF-8">
   <title>Search</title>
 </head>
-<body ng-app='myApp' ng-controller='apartmentListCtrl'>
+<body ng-app='myApp'>
 <div class = "container">
   <h1>Search</h1>
+  
 
-  <table class = 'table'>
+  <table class = 'table' ng-hide = "businesses.length ===0">
     <thead>
       <tr>
         <th></th>
@@ -29,8 +30,8 @@
       <td >{{business.location.cross_streets}}<br>{{business.location.city}}</td>
       <td ><img src="{{business.rating_img_url}}"></td>
       <td>
-        <button class="btn btn-primary" ng-click = 'favorite($index)' ng-if= "!toggleFave">Favorte</button>
-        <button class="btn btn-danger" ng-click = 'favorite($index)' ng-if= "toggleFave" >UnFavorte</button>
+        <button class="btn btn-primary" ng-click = 'favorite($index)' ng-if= "!toggleFave">Favorite</button>
+        <button class="btn btn-danger" ng-click = 'unFavorite($index)' ng-if= "toggleFave" >UnFavorte</button>
       </td>
       </tr>
     </tbody>
@@ -38,7 +39,7 @@
 
 <form ng-submit = 'searchBusiness()'>
   <div class="form-group">
-      <label >Search</label>
+      <label >Search By Yelp Id <h5> ex: urban-curry-san-francisco</h5></label>
       <input type="text" class="form-control" placeholder="Name" ng-model = 'newItem.searchParams'>
     </div>
     <div class = "text-center submitbt"><button type="submit" class="btn btn-primary">Search</button></div>
@@ -46,7 +47,7 @@
 
 <br>
 <hr>
-<pre> {{businesses | json}}</pre>
+<!--<pre> {{businesses | json}}</pre>-->
 
 
 

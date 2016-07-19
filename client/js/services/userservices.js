@@ -48,8 +48,20 @@ app.service('User', function($http, $q) {
   }
 
   this.addFavoriteToUser = (id, yelpId) =>{
-    console.log("addFavoriteToUser", "id:", id, "yelpId", yelpId)
-    return $http.put(`/api/users/profile/${id}/${yelpId}`)
+    //console.log("addFavoriteToUser", "id:", id, "yelpId", yelpId)
+    return $http.put(`/api/users/profile/${id}/add/${yelpId}`)
+     .then(res => {
+        //console.log("res ln 53:", res);
+        return $q.resolve();
+    })
+    .catch(err =>{
+      console.log("err:", err);
+    });
+  }
+
+  this.removeFavoritefromUser = (id, yelpId) =>{
+    console.log("remove Favorite", "id:", id, "yelpId", yelpId)
+    return $http.put(`/api/users/profile/${id}/remove/${yelpId}`)
      .then(res => {
         console.log("res ln 53:", res);
         return $q.resolve();

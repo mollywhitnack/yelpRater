@@ -24,13 +24,19 @@
     <button class = "btn btn-info" >Submit</button>
     <button class = "btn btn-danger" type = "cancel" ng-click = "cancelPhotoUrl()">Cancel</button>
   </form>
+<hr>
+<h4> {{user.displayName}}'s Favorite Places</h4>
+<div ng-repeat = 'name in user.favorites track by $index'>
+<li><a ui-sref = 'showBusiness({businessId: name})'>{{name}}</a></li>
+</div>
 
  <hr>
- <div>
+
+ <div class = "text-center">
  <span ng-repeat = "post in userWallposts track by $index">
-  <h4 class = "text-center">{{post.text}}</h4>
+  <h4 >{{post.text}}</h4>
   <br>
-  <h6 class = "text-right"> - {{post.fromName}}</h6>
+  <h6> - {{post.fromName}}</h6>
   <hr>
  </span>
 
@@ -38,11 +44,14 @@
   <form class = "addWallPost form-group" ng-submit = "submitMessage()">
     <input class="form-control" id="focusedInput"  type = "text" ng-model = "newItem.text">
     <br>
-    <button class = "btn btn-default" >Post</button>
+    <button class = "btn btn-default" >Post on {{user.displayName}}'s wall</button>
   </form>
 </div>
  
- <pre>{{user | json}}</pre>
+
+
+
+ <!--<pre>{{user | json}}</pre>-->
 
 </div>
 </body>

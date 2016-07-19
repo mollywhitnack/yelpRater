@@ -25,16 +25,25 @@ router.get('/profile/:id', User.authMiddleware(), (req, res) => {
 
 //to update profile
 router.put('/profile/:id', User.authMiddleware(), (req, res) =>{
-    console.log('req.params.id:', req.params.id);
+    //console.log('req.params.id:', req.params.id);
     User.findByIdAndUpdate(req.params.id, req.body, {new :true}, (err, savedProf)=>{
       res.status(err ? 400 :200).send(err || savedProf);
     })
 });
 
 
-router.put('/profile/:id/:yelpId', User.authMiddleware(), (req, res) =>{
-    console.log('req.params.id:', req.params.id);
-    User.findByIdAndUpdate(req.params.id, {$push: { favorites: req.params.yelpId }}, {new :true}, (err, savedProf)=>{
+router.put('/profile/:id/add/:yelpId', User.authMiddleware(), (req, res) =>{
+    console.log('---------req.params.id:', req.params.id);
+    console.log('--------req.params.yelpid:', req.params.yelpId);
+    User.findByIdAndUpdate(req.params.id, {$push: {'favorites': req.params.yelpId }}, {new :true}, (err, savedProf)=>{
+      res.status(err ? 400 :200).send(err || savedProf);
+    })
+});
+
+router.put('/profile/:id/remove/:yelpId', User.authMiddleware(), (req, res) =>{
+    console.log('---------req.params.id:', req.params.id);
+    console.log('--------req.params.yelpid:', req.params.yelpId);
+    User.findByIdAndUpdate(req.params.id, {$pull: {'favorites': req.params.yelpId }}, {new :true}, (err, savedProf)=>{
       res.status(err ? 400 :200).send(err || savedProf);
     })
 });

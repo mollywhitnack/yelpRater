@@ -5,7 +5,30 @@
   <title>Single View</title>
 </head>
 <body ng-app='myApp' ng-controller='showbusinessCtrl'>
-<h1>{{business.name}}</h1>
-  <pre>{{business | json}}</pre>
+<h1>{{business.name}} <img src="{{business.rating_img_url}}"></h1>
+<br>
+
+<span class='inLB'><img src="{{business.image_url}}"></span>
+<span class='inLB address'>
+  <h4>{{business.location.display_address[0]}}</h4>
+  <h4>{{business.location.display_address[1]}}</h4>
+  <h4>{{business.location.display_address[2]}}</h4>
+</span>
+<hr>
+<h4> Phone: {{business.display_phone}}</h4>
+
+<hr>
+
+<h5>Reviews:</h5>
+<img src="{{business.reviews[0].rating_image_url}}">
+<br>
+<blockquote class="blockquote">
+  <p class="m-b-0">{{business.reviews[0].excerpt}}</p>
+  <footer class="blockquote-footer">{{business.reviews[0].user.name}}</footer>
+</blockquote>
+
+<hr>
+
+ <!-- <pre>{{business | json}}</pre>-->
 </body>
 </html>
