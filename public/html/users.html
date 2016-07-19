@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Users</title>
+</head>
+<body ng-app='myApp' ng-controller='homeCtrl'>
+<div class="container">
+  <h1>Users</h1>
+<hr>
+  <div class = "userDisplay" ng-repeat = 'user in userFeed'>
+    <span class = "feedInfo"><div>{{user.displayName}}</div>
+      <div> Contact: {{user.email}}</div>
+      <br>
+      <button class = "btn btn-default btn-sm" ui-sref = 'profile({userId: user._id})'>View {{user.displayName}}'s profile</button>
+    </span>
+    <span class = "feedPic">
+      <img class = "imgalighn" ng-src="{{user.profileImage}}" style="max-height:90px">
+    </span>
+    <hr>
+  </div>
+
+</div>
+</body>
+</html>

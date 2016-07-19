@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title> {{user.displayName}}</title>
+</head>
+<body ng-app='myApp' ng-controller='profileCtrl'>
+<h1 class = "profName">{{user.displayName}}</h1>
+
+
+<button ng-if ="currentUser._id === user._id" class = "btn btn-xs pencilEdit" ng-hide = "displayNameForm" ng-click = "showdisplayNameForm()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+  <form ng-submit = updatedisplayName() ng-show = "displayNameForm">
+    <input type = "text" placeholder = "USername" ng-model = 'newItem.displayName'>
+    <button class = "btn btn-info " >Submit</button>
+    <button class = "btn btn-danger" type = "cancel" ng-click = "canceldisplayName()">Cancel</button>
+  </form>
+
+  <br>
+
+  <div class = "pictureCont"> <img ng-src="{{user.profileImage}}" style="max-height:200px"></div>
+  <button ng-if ="currentUser._id === user._id" class = "btn btn-xs pencilEdit" ng-hide = "photoForm" ng-click = "showPictureForm()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+  <form ng-submit = updatePicture() ng-show = "photoForm">
+    <input type = "text" placeholder = "Picture Url" ng-model = 'newItem.profileImage'>
+    <button class = "btn btn-info" >Submit</button>
+    <button class = "btn btn-danger" type = "cancel" ng-click = "cancelPhotoUrl()">Cancel</button>
+  </form>
+
+ <hr>
+ <div>
+ <span ng-repeat = "post in userWallposts track by $index">
+  <h4 class = "text-center">{{post.text}}</h4>
+  <br>
+  <h6 class = "text-right"> - {{post.fromName}}</h6>
+  <hr>
+ </span>
+
+
+  <form class = "addWallPost form-group" ng-submit = "submitMessage()">
+    <input class="form-control" id="focusedInput"  type = "text" ng-model = "newItem.text">
+    <br>
+    <button class = "btn btn-default" >Post</button>
+  </form>
+</div>
+ 
+ <pre>{{user | json}}</pre>
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

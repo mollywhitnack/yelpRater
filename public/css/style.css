@@ -1,0 +1,30 @@
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0; }
+
+.drop-box {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #000; }
+
+.pencilEdit {
+  display: inline-block;
+  background-color: none;
+  margin-top: -12px;
+  margin-left: 10px; }
+
+.profName {
+  display: inline-block; }
+
+.pictureCont {
+  display: inline-block; }
+
+.imgalighn {
+  float: right;
+  margin-top: -40px; }
+
+.right {
+  text-align: right; }
